@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI App / Website - Ashan AI</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Ashan AI</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ai-chat.html">AI Chat</a>
+            <a href="ai-image.html">AI Image</a>
+            <a href="ai-video.html">AI Video</a>
+            <a href="ai-music.html">AI Music</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
 
+    <main>
+        <section class="app-section">
+            <h2>AI App / Website Generator</h2>
+            <form id="appForm">
+                <input type="text" id="appPrompt" placeholder="උදාහරණ: ToDo list app in React" required>
+                <button type="submit">Generate Code</button>
+            </form>
+            <div id="appResult" class="app-result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ashan AI. සියලු හිමිකම් ඇවිරිණි.</p>
+    </footer>
+
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
