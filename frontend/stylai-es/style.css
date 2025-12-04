@@ -120,5 +120,40 @@ footer {
 }
 
 #chatForm button:hover {
+    background-color: #3a519b;.image-section {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.image-section input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.image-section button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4b6cb7;
+    color: white;
+    cursor: pointer;
+}
+
+.image-section button:hover {
     background-color: #3a519b;
+}
+
+.image-result img {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+}
 }
