@@ -124,3 +124,26 @@ app.post("/api/chat", async (req, res) => {
     await incrementUsage(userId, "chat");
     res.json({ reply });
 });
+import Stripe from "stripe";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+app.post("/create-checkout-session", async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items: [
+            {
+                price_data: {
+                    currency: "lkr",
+                    product_data: { name: "Ashan AI Unlimited Access" },
+                    unit_amount: 50000 // 500.00 LKR
+                },
+                quantity: 1
+            }
+        ],
+        mode: "payment",
+        success_url: "https://ashan-ai.vercel.app/payment-success?userId=USER_ID",
+        cancel_url: "https://ashan-ai.vercel.app/payment-cancel"
+    });
+
+    res.json({ id: session.id });
+});
