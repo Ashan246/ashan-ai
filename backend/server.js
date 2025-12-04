@@ -29,3 +29,21 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server running on port 3000"));
+// server.js (add this along with chat endpoint)
+app.post("/api/image", async (req, res) => {
+    try {
+        const { prompt } = req.body;
+
+        const response = await openai.images.generate({
+            model: "gpt-image-1",
+            prompt: prompt,
+            size: "1024x1024"
+        });
+
+        const imageUrl = response.data[0].url;
+        res.json({ url: imageUrl });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ url: null });
+    }
+});
