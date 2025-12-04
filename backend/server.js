@@ -87,3 +87,22 @@ app.post("/api/music", async (req, res) => {
         res.status(500).json({ url: null });
     }
 });
+// server.js (add this along with other endpoints)
+app.post("/api/app", async (req, res) => {
+    try {
+        const { prompt } = req.body;
+
+        const response = await openai.chat.completions.create({
+            model: "gpt-5-mini",
+            messages: [
+                { role: "user", content: `Generate a working app / website code for: ${prompt}` }
+            ]
+        });
+
+        const code = response.choices[0].message.content;
+        res.json({ code });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ code: null });
+    }
+});
