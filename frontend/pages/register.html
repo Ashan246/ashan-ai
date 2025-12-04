@@ -1,1 +1,40 @@
 
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Ashan AI</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Ashan AI</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <h2>Register වන්න</h2>
+            <form id="registerForm">
+                <input type="text" id="name" placeholder="නම" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>දැනටමත් ගිණුමක් තිබේද? <a href="login.html">Login කරන්න</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ashan AI. සියලු හිමිකම් ඇවිරිණි.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="scripts/register.js"></script>
+</body>
+</html>
