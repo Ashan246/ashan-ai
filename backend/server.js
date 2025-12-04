@@ -106,3 +106,21 @@ app.post("/api/app", async (req, res) => {
         res.status(500).json({ code: null });
     }
 });
+app.post("/api/chat", async (req, res) => {
+    const userId = req.body.userId; // send logged in user id
+    const prompt = req.body.message;
+
+    if (!(await canUseFeature(userId, "chat"))) {
+        return res.status(403).json({ reply: "Free limit පුරා. Upgrade කරන්න." });
+    }
+
+    // Call OpenAI
+    const response = await openai.chat.completions.create({
+        model: "gpt-5-mini",
+        messages: [{ role: "user", content: prompt }]
+    });
+
+    const reply = response.choices[0].message.content;
+    await incrementUsage(userId, "chat");
+    res.json({ reply });
+});
