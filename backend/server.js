@@ -67,3 +67,23 @@ app.post("/api/video", async (req, res) => {
         res.status(500).json({ url: null });
     }
 });
+// server.js (add this along with other endpoints)
+app.post("/api/music", async (req, res) => {
+    try {
+        const { prompt } = req.body;
+
+        // Example: replace with real AI music generation API
+        const response = await openai.audio.generate({
+            model: "gpt-music-1",
+            prompt: prompt,
+            format: "mp3",
+            length: 30 // 30 seconds music
+        });
+
+        const musicUrl = response.data[0].url;
+        res.json({ url: musicUrl });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ url: null });
+    }
+});
