@@ -70,3 +70,55 @@ footer {
     background-color: #4b6cb7;
     color: white;
 }
+.chat-section {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.chat-message {
+    margin: 5px 0;
+}
+
+.chat-message.user {
+    text-align: right;
+    color: #4b6cb7;
+}
+
+.chat-message.ai {
+    text-align: left;
+    color: #fc5c7d;
+}
+
+#chatForm input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#chatForm button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4b6cb7;
+    color: white;
+    cursor: pointer;
+}
+
+#chatForm button:hover {
+    background-color: #3a519b;
+}
