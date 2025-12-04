@@ -47,3 +47,23 @@ app.post("/api/image", async (req, res) => {
         res.status(500).json({ url: null });
     }
 });
+// server.js (add this along with chat & image endpoints)
+app.post("/api/video", async (req, res) => {
+    try {
+        const { prompt } = req.body;
+
+        // Example: replace with real AI video generation API
+        const response = await openai.videos.generate({
+            model: "gpt-video-1",
+            prompt: prompt,
+            size: "720p",
+            length: 10 // 10 seconds video
+        });
+
+        const videoUrl = response.data[0].url;
+        res.json({ url: videoUrl });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ url: null });
+    }
+});
